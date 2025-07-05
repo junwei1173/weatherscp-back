@@ -69,7 +69,20 @@ app.get('/weather', async (req, res) => {
   }
 });
 
-
+// Add this after your other routes
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Weather API Server is running!',
+    endpoints: {
+      weather: '/weather?city=CITY_NAME&userId=USER_ID',
+      events: '/events?lat=LAT&lon=LON&date=YYYY-MM-DD',
+      history: '/history?userId=USER_ID',
+      register: 'POST /register',
+      login: 'POST /login',
+      aiSuggestion: 'POST /ai-suggestion'
+    }
+  });
+});
 
 // AI Suggestion Route
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
