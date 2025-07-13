@@ -18,7 +18,7 @@ const PORT = 5050;
 const WEATHER_API_KEY = 'eb15f8ab4e356d62dd84027c18eff998';
 const GEMINI_API_KEY = 'AIzaSyAkhsuohEMZ1-1Nf9nwU1zKikmvnCRmUzY';
 
-// Setup
+
 app.use(cors());
 app.use(express.json());
 
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('✅ MongoDB connected'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// Weather Route
+
 app.get('/weather', async (req, res) => {
   const { city, userId, skipSave } = req.query;
 
@@ -40,7 +40,7 @@ app.get('/weather', async (req, res) => {
 
     let searchEntry = null;
 
-    // Only save to DB if skipSave is not true
+    
     if (skipSave !== 'true') {
   const weather = response.data;
   searchEntry = new Search({
@@ -69,7 +69,7 @@ app.get('/weather', async (req, res) => {
   }
 });
 
-// Add this after your other routes
+
 app.get('/', (req, res) => {
   res.json({ 
     message: 'Weather API Server is running!',
@@ -193,7 +193,7 @@ app.get('/history', async (req, res) => {
   }
 });
 
-// First, delete all route (more specific)
+
 app.delete('/history/all', async (req, res) => {
   const { userId } = req.query;
 
@@ -210,7 +210,7 @@ app.delete('/history/all', async (req, res) => {
   }
 });
 
-// Then, delete single route
+
 app.delete('/history/:id', async (req, res) => {
   try {
     await Search.findByIdAndDelete(req.params.id);
