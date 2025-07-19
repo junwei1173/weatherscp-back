@@ -1,7 +1,5 @@
 https://weatherscopejun.vercel.app/
 
-https://weatherscopejun.vercel.app/
-
 WeatherScope is a full-stack weather app that provides real-time weather information, AI outfit and activity suggestions, and personalized Spotify playlists based on the weather. Plan your trips with accurate 5-day forecasts and discover local events to make the most out of your day!
 
 ---
